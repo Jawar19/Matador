@@ -66,9 +66,25 @@ public class Main
                         gameOrder = "endTurn";
                     }
                     extraRoll = MatadorController.isPair();
+                    gameOrder = "movePlayer";
+                    break;
 
                 case "movePlayer":
                     MatadorController.playerList.get(turnCount).movePlayer(MatadorController.getDiceValue());
+                    gameOrder = "fieldactions";
+                    break;
+                    
+                case "fieldaction":
+                    MatadorController.board[MatadorController.playerList.get(turnCount).getPosition()].landOnField(MatadorController.playerList.get(turnCount));
+                    
+                case "options":
+                    System.out.println("what do you want to do?");
+                    
+                case "endTurn":
+                    MatadorController.playerList.get(turnCount).resetPair();
+                    turnCount++;
+                    gameOrder = "nextPlayer";
+                    break;
             }
 
         }
