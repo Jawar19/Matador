@@ -29,6 +29,7 @@ abstract class BuyableField implements IField
     }
 
     //Methods
+    @Override
     public void buyField(Player P)
     {
         if (this.owner == null && P.deductBalance(price))
@@ -41,6 +42,7 @@ abstract class BuyableField implements IField
         }
     }
     
+    @Override
     public boolean isOwned()
     {
         if (this.owner != null)
