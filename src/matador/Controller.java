@@ -12,8 +12,8 @@ import java.util.Scanner;
 public class Controller
 {
     public static IField[]  board;
-    ArrayList<Player> playerList;
-    private Cup dice;
+    static ArrayList<Player> playerList;
+    private static Cup dice;
     private short eyesOfDice;
     
     public Controller()
@@ -23,7 +23,6 @@ public class Controller
         playerList = new ArrayList<>();
         
     }
-         
     
     //Metods
     public void addPlayer()
@@ -41,11 +40,6 @@ public class Controller
         Player p = new Player(name);
         playerList.add(p);
         }
-    }
-    
-    public void fillBoard()
-    {
-        
     }
     
     public short rollDice()
