@@ -3,13 +3,22 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package matador;
+package matador.fields;
+
+import matador.IField;
+import matador.Player;
 
 /**
  *
  * @author Mikke
  */
-public class BreweryField extends BuyableField
+public class JailField implements IField
 {
+
+    @Override
+    public void landOnField(Player P)
+    {
+        //Jail felt gør ingen ting
+    }
     
 }
