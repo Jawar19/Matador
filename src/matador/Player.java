@@ -93,4 +93,9 @@ public class Player
             System.out.println("You've been jail, you lucky SOB");
         }
     }
+    
+    public void resetPair()
+    {
+        pairCounter = 0;
+    }
 }
