@@ -11,8 +11,7 @@ public class Cup
     //attributes
     private Die die1;
     private Die die2;
-    private int result;
-    private int pairCount;
+    private short result;
 
     //constructor
     public Cup()
@@ -22,9 +21,9 @@ public class Cup
     }
 
     //methods
-    public int getValue()
+    public short getValue()
     {
-        result = die1.getValue() + die2.getValue();
+        result = (short) (die1.getValue() + die2.getValue());
         return result;
     }
 
@@ -34,29 +33,8 @@ public class Cup
         die2.rollDie();
     }
 
-    public boolean[] isPair()
-    {
-        //do boolean array
-        boolean[] isPairReturn = new boolean[2];
-
-        //could be replaces by "return die1.getValue() == die2.getValue()"
-        if (die1.getValue() == die2.getValue())
-        {
-            pairCount++;
-            if (pairCount == 3)
-            {
-                isPairReturn[1] = false;
-            }
-            else
-            {
-                isPairReturn[1] = true;
-            }
-            isPairReturn[0] = true;
-        }
-        else
-        {
-            isPairReturn[0] = false;
-        }
-        return isPairReturn;
+    public boolean isPair()
+    {   //could be replaces by "return die1.getValue() == die2.getValue()"
+        return die1.getValue() == die2.getValue();
     }
 }

@@ -11,7 +11,7 @@ public class Die
 {
     private final int numberOfSides;
     private final Random rand;
-    private int value;
+    private short value;
     
     public Die(int numberOfSides)
     {
@@ -22,10 +22,10 @@ public class Die
     //methods
     public void rollDie()
     {
-        value = rand.nextInt(numberOfSides) + 1;
+        value = (short) (rand.nextInt(numberOfSides) + 1);
     }
     
-    public int getValue()
+    public short getValue()
     {
         return value;     
     }

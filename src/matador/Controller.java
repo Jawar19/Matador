@@ -14,12 +14,14 @@ public class Controller
     public static IField[]  board;
     ArrayList<Player> playerList;
     private Cup dice;
+    private short eyesOfDice;
     
     public Controller()
     {
         this.board = new IField[40];
         this.dice = new Cup();
         playerList = new ArrayList<>();
+        
     }
          
     
@@ -46,22 +48,12 @@ public class Controller
         
     }
     
-    public boolean rollDice()
+    public short rollDice()
     {
         dice.rollDice();
+        eyesOfDice = dice.getValue();
         System.out.println("you rolled" + dice.getValue());
-        if (dice.isPair()[0])
-        {
-            
-            System.out.println("You got a pair");
-        }
-        
-        if (dice.isPair()[1])
-        {
-            System.out.println("You're goin to jail, for beeing to god damn lucky!");
-            //playerList.get(player) //Move player to jail.
-        }
-        return dice.isPair()[1];
+        return eyesOfDice;
     }
     
     public int getDiceValue()
