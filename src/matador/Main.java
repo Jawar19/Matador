@@ -80,6 +80,11 @@ public class Main
                 case "options":
                     System.out.println("what do you want to do?");
                     
+                case "buyProperty":
+                    MatadorController.board[MatadorController.playerList.get(turnCount).getPosition()].
+                    
+                case "buildEstate":
+                    
                 case "endTurn":
                     MatadorController.playerList.get(turnCount).resetPair();
                     turnCount++;
