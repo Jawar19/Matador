@@ -23,13 +23,9 @@ public class Main
         boolean isGameOver = false;
         short turnCount = 0;
         short eyeCount;
-<<<<<<< HEAD
         boolean extraRoll;
-        
-        
-=======
 
->>>>>>> 38e17ee68dbc07cc382cdf43171ec532da32472b
+        //
         Controller MatadorController = new Controller();
 
         do
@@ -44,32 +40,18 @@ public class Main
                     {
                         System.out.println("at least 2 players are needed to start the game");
                         break;
-                    } else
+                    }
+                    else
                     {
                         startGame = true;
                         break;
                     }
             }
-        } while (MatadorController.playerList.size() < 6 || !startGame);
+        }
+        while (MatadorController.playerList.size() < 6 || !startGame);
 
         do
         {
-<<<<<<< HEAD
-            case "nextPlayer":
-                System.out.println("Next player is: " + MatadorController.playerList.get(turnCount).GetName());
-                gameOrder = "rollDice";
-                break;
-            case "rollDice":
-                eyeCount = MatadorController.rollDice();
-                extraRoll = MatadorController.isPair();
-                        
-            case "movePlayer":
-                MatadorController.playerList.get(turnCount).movePlayer(MatadorController.getDiceValue());
-        }
-        
-    } while (!isGameOver);
-=======
-
             switch (gameOrder)
             {
                 case "nextPlayer":
@@ -77,19 +59,15 @@ public class Main
                     gameOrder = "rollDice";
                     break;
                 case "rollDice":
-                    if (MatadorController.rollDice())
-                    {
-                        gameOrder = "moveJail";
-                    } else
-                    {
-                        gameOrder = "movePlayer";
-                    }
+                    eyeCount = MatadorController.rollDice();
+                    MatadorController.checkPairCount(MatadorController.playerList.get(turnCount));
+                    extraRoll = MatadorController.isPair();
+
                 case "movePlayer":
                     MatadorController.playerList.get(turnCount).movePlayer(MatadorController.getDiceValue());
             }
 
-        } while (!isGameOver);
->>>>>>> 38e17ee68dbc07cc382cdf43171ec532da32472b
+        }
+        while (!isGameOver);
     }
-
 }
