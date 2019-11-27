@@ -12,6 +12,8 @@ public class Player
     private int balance;
     private short currentPosition;
     private short numberOfRound;
+    private boolean isJail;
+    private short pairCounter;
 
     //contructor
     public Player(String name)
@@ -65,14 +67,24 @@ public class Player
         {
              this.currentPosition = (short) (this.currentPosition + move - Controller.board.length);
              this.addBalance(4000);
-             numberOfRound++;
-             
-             
+             numberOfRound++;   
         }
     }
     
     public short getNumberOfRounds()
     {
         return this.numberOfRound;
+    }
+    
+    public void pairCounter(boolean isPair)
+    {
+        if (isPair)
+        {
+            pairCounter++;
+        }
+        if (pairCounter == 3){
+            currentPosition = 10;
+            isJail = true;
+        }
     }
 }
