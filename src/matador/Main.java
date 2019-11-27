@@ -55,13 +55,13 @@ public class Main
             switch (gameOrder)
             {
                 case "nextPlayer":
-                    System.out.println("Next player is: " + MatadorController.playerList.get(turnCount).GetName());
+                    System.out.println("Next player is: " + MatadorController.getCurrentPlayer(turnCount).GetName());
                     gameOrder = "rollDice";
                     break;
                 case "rollDice":
                     eyeCount = MatadorController.rollDice();
-                    MatadorController.checkPairCount(MatadorController.playerList.get(turnCount));
-                    if (MatadorController.playerList.get(turnCount).isJail())
+                    MatadorController.checkPairCount(MatadorController.getCurrentPlayer(turnCount));
+                    if (MatadorController.getCurrentPlayer(turnCount).isJail())
                     {
                         gameOrder = "endTurn";
                     }
@@ -70,23 +70,23 @@ public class Main
                     break;
 
                 case "movePlayer":
-                    MatadorController.playerList.get(turnCount).movePlayer(MatadorController.getDiceValue());
+                    MatadorController.getCurrentPlayer(turnCount).movePlayer(MatadorController.getDiceValue());
                     gameOrder = "fieldactions";
                     break;
                     
                 case "fieldaction":
-                    MatadorController.board[MatadorController.playerList.get(turnCount).getPosition()].landOnField(MatadorController.playerList.get(turnCount));
+                    MatadorController.board[MatadorController.getCurrentPlayer(turnCount).getPosition()].landOnField(MatadorController.getCurrentPlayer(turnCount));
                     
                 case "options":
                     System.out.println("what do you want to do?");
                     
                 case "buyProperty":
-                    MatadorController.board[MatadorController.playerList.get(turnCount).getPosition()].buyField(MatadorController.playerList.get(turnCount));
+                    MatadorController.board[MatadorController.getCurrentPlayer(turnCount).getPosition()].buyField(MatadorController.getCurrentPlayer(turnCount));
                     
                 case "buildEstate":
                     
                 case "endTurn":
-                    MatadorController.playerList.get(turnCount).resetPair();
+                    MatadorController.getCurrentPlayer(turnCount).resetPair();
                     turnCount++;
                     gameOrder = "nextPlayer";
                     break;

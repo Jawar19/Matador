@@ -42,6 +42,11 @@ public class Controller
         }
     }
 
+    public Player getCurrentPlayer(int turnOrder)
+    {
+        return this.playerList.get(turnOrder);
+    }
+    
     public short rollDice()
     {
         dice.rollDice();

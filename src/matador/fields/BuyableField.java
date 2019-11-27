@@ -15,7 +15,7 @@ import matador.Player;
 abstract class BuyableField implements IField
 {
 
-    //Attributter
+    //Attributes
     protected Player owner;
     protected String name;
     protected int price;
@@ -29,6 +29,16 @@ abstract class BuyableField implements IField
     }
 
     //Methods
+    @Override
+    public void landOnField(Player p)
+    {
+        if (owner != null)
+        {
+            p.deductBalance(calculatePrice());
+            owner.addBalance(calculatePrice());
+        }
+    }
+    
     @Override
     public void buyField(Player P)
     {
@@ -54,6 +64,7 @@ abstract class BuyableField implements IField
         }
     }
 
+    @Override
     public void setOwner(Player owner)
     {
         this.owner = owner;
