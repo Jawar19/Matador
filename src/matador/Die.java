@@ -17,6 +17,7 @@ public class Die
     {
         this.numberOfSides = numberOfSides;
         this.rand = new Random();
+        
     }
     
     //methods
