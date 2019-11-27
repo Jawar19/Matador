@@ -5,6 +5,7 @@
  */
 package matador.fields;
 
+import matador.IField;
 import matador.Player;
 
 /**

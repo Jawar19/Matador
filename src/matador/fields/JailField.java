@@ -5,6 +5,7 @@
  */
 package matador.fields;
 
+import matador.IField;
 import matador.Player;
 
 /**
@@ -18,7 +19,6 @@ public class JailField implements IField
     public void landOnField(Player P)
     {
         System.out.println("You go to jail");
-        P.
+        P.setIsJail(true);
     }
-    
 }
