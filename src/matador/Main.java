@@ -61,6 +61,10 @@ public class Main
                 case "rollDice":
                     eyeCount = MatadorController.rollDice();
                     MatadorController.checkPairCount(MatadorController.playerList.get(turnCount));
+                    if (MatadorController.playerList.get(turnCount).isJail())
+                    {
+                        gameOrder = "endTurn";
+                    }
                     extraRoll = MatadorController.isPair();
 
                 case "movePlayer":

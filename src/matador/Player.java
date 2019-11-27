@@ -39,6 +39,11 @@ public class Player
         return this.name;
     }
     
+    public boolean isJail()
+    {
+        return this.isJail;
+    }
+    
     public void addBalance(int amount)
     {
         this.balance += amount;
