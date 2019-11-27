@@ -11,10 +11,7 @@ package matador;
  */
 public interface IField
 {
-    public final String name;
+   //Method
     
-    public Field(String name)
-    {
-        this.name = name;
-    }
+    public void landOnField(Player P);
 }
