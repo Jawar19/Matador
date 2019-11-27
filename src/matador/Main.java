@@ -24,6 +24,7 @@ public class Main
         boolean isGameOver = false;
         short turnCount = 0;
         short eyeCount;
+        boolean extraRoll;
         
         
         Controller MatadorController = new Controller();
@@ -59,14 +60,9 @@ public class Main
                 gameOrder = "rollDice";
                 break;
             case "rollDice":
-                if (MatadorController.rollDice())
-                {
-                    gameOrder = "moveJail";
-                }
-                else
-                {
-                    gameOrder = "movePlayer";
-                }
+                eyeCount = MatadorController.rollDice();
+                extraRoll = MatadorController.isPair();
+                        
             case "movePlayer":
                 MatadorController.playerList.get(turnCount).movePlayer(MatadorController.getDiceValue());
         }

@@ -8,22 +8,22 @@ package matador;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-
 public class Controller
 {
-    public static IField[]  board;
+
+    public static IField[] board;
     static ArrayList<Player> playerList;
     private static Cup dice;
     private short eyesOfDice;
-    
+
     public Controller()
     {
         this.board = new IField[40];
         this.dice = new Cup();
         playerList = new ArrayList<>();
-        
+
     }
-    
+
     //Metods
     public void addPlayer()
     {
@@ -31,17 +31,17 @@ public class Controller
         Scanner input = new Scanner(System.in);
         String name;
         //Getting name input, if theres less than 6 players in the playerlist, according to Matador-ruleset
-        if (playerList.size() < 6 )
+        if (playerList.size() < 6)
         {
-        System.out.println("What is your name:");
-        name = input.next();
-        
-        //Constructs a player at puts player in playerList
-        Player p = new Player(name);
-        playerList.add(p);
+            System.out.println("What is your name:");
+            name = input.next();
+
+            //Constructs a player at puts player in playerList
+            Player p = new Player(name);
+            playerList.add(p);
         }
     }
-    
+
     public short rollDice()
     {
         dice.rollDice();
@@ -49,12 +49,19 @@ public class Controller
         System.out.println("you rolled" + dice.getValue());
         return eyesOfDice;
     }
-    
+
     public int getDiceValue()
     {
         return dice.getValue();
     }
-    
-    
-}
 
+    public boolean isPair()
+    {
+        return dice.isPair();
+    }
+    
+    public void checkPairCount(Player p)
+    {
+        p.pairCounter(isPair());
+    }
+}

@@ -85,6 +85,7 @@ public class Player
         if (pairCounter == 3){
             currentPosition = 10;
             isJail = true;
+            System.out.println("You've been jail, you lucky SOB");
         }
     }
 }
