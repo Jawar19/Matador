@@ -16,4 +16,10 @@ public interface IField
    //Method
     
     public void landOnField(Player P);
+    
+    public boolean isOwned();
+    
+    public void setOwner(Player owner);
+    
+    public void buyField(Player P);
 }

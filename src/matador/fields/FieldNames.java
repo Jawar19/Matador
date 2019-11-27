@@ -2,9 +2,6 @@ package matador.fields;
 
 public class FieldNames
 {
-
-    public static void main(String[] args)
-    {
         //Street names:
         /*
         Raadhuspladsen = 8000 kr
@@ -73,6 +70,6 @@ public class FieldNames
         //Start
         int passStartMoney = 2000;
         
-    }
+    
     
 }

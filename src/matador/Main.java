@@ -81,7 +81,7 @@ public class Main
                     System.out.println("what do you want to do?");
                     
                 case "buyProperty":
-                    MatadorController.board[MatadorController.playerList.get(turnCount).getPosition()].
+                    MatadorController.board[MatadorController.playerList.get(turnCount).getPosition()].buyField(MatadorController.playerList.get(turnCount));
                     
                 case "buildEstate":
                     
