@@ -5,6 +5,8 @@
  */
 package matador;
 
+import java.util.Scanner;
+
 /**
  *
  * @author Jacob
@@ -18,34 +20,57 @@ public class Main
     public static void main(String[] args)
     {
         boolean startGame = false;
-        String preGame = "addPlayer";
+        String preGame = "addplayer";
         String gameOrder = "nextPlayer";
         boolean isGameOver = false;
         short turnCount = 0;
         short eyeCount;
         boolean extraRoll;
+        Scanner input = new Scanner(System.in);
 
         //
         Controller MatadorController = new Controller();
-
+        System.out.println("Add 2 or more player, then type \"startGame\" in console");
         do
         {
             switch (preGame)
             {
                 case "addplayer":
                     MatadorController.addPlayer();
+                    preGame = "printText";
                     break;
                 case "startGame":
                     if (MatadorController.playerList.size() < 2)
                     {
                         System.out.println("at least 2 players are needed to start the game");
+                        preGame = "addplayer";
                         break;
                     }
                     else
                     {
+                        System.out.println("Starting game, please Wait...");
                         startGame = true;
                         break;
                     }
+                case "printText":
+                    if (MatadorController.playerList.size() < 2){
+                        System.out.println("add another player");
+                        preGame = "addplayer";
+                        break;
+                    }
+                    else
+                    {
+                        System.out.println("type \"addplayer\" to add another player, or \"startGame\" to start the game"); 
+                        preGame = input.nextLine();
+                        break;
+                    }
+                default:
+                    System.out.println("Wrong argument, try again");
+                    preGame = "printText";
+                    break;
+            }
+            if (startGame){
+                break;
             }
         }
         while (MatadorController.playerList.size() < 6 || !startGame);

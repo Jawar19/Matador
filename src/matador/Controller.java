@@ -51,7 +51,7 @@ public class Controller
     {
         dice.rollDice();
         eyesOfDice = dice.getValue();
-        System.out.println("you rolled" + dice.getValue());
+        System.out.println("you rolled " + dice.getValue());
         return eyesOfDice;
     }
 
